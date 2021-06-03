@@ -1,11 +1,11 @@
 
-public interface Stack {
+public interface Stack<T> {
 
-	abstract String pop();
+	abstract T pop();
 	
-	abstract String top();
+	abstract T top();
 	
-    abstract void push(String elem);
+    abstract void push(T elem);
 		
 	
 }
