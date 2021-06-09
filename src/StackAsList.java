@@ -1,23 +1,24 @@
 
 public class StackAsList<T> implements Stack<T> {
 	private Node top;
-	private int size;
+	private int size = 0;
 
 	@Override
 	public T pop() {
-		size++;
 		if (top.next != null) {
 			T topString = top.data;
 			top = top.next;
+			size--;
 			return topString;
 		}
 		else if (top != null) {
 			T topString = top.data;
 			top = null;
+			size--;
 			return topString;
 		}
 		else {
-			return null;
+			throw new RuntimeException("Stack Underflow");
 		}
 	}
 	
@@ -27,15 +28,16 @@ public class StackAsList<T> implements Stack<T> {
 
 	@Override
 	public void push(T elem) {
-		size++;
 		if (top == null) {
 			Node newNode = new Node(elem, null);
 			top = newNode;
+			size++;
 		}
 		else {
 			Node formerTop = top;
 			Node newNode = new Node(elem, formerTop);
 			top = newNode;
+			size++;
 		}
 	}
 	

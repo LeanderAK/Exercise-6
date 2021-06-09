@@ -10,7 +10,7 @@ public class Postfix{
 		String s = scanner.next();
 	    System.out.println("Input string is:" + s);
 		System.out.println(p.infixToPostfix(s));
-		
+		scanner.close();
 	}
 	
 	
@@ -38,7 +38,7 @@ public class Postfix{
 			  
 			  while(precedence(stack.top()) < precedence(t)) {
 				  r = r + stack.top();
-				  stack.pop();
+				  System.out.println(stack.pop());
 				  if(stack.top() == null) {
 					  break;
 				  }
@@ -58,13 +58,13 @@ public class Postfix{
 	public int precedence(char t) {
 		
 		if(t == '+' || t == '-') {
-		return 1;
+			return 1;
 		}
 		if(t == '*' || t == '/' || t == '%') {
-		return 2;
+			return 2;
 		}
 		return 0;
-		}
+	}
 
 	
 	public void evaluate (String pfx) {
