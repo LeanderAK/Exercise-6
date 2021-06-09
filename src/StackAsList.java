@@ -1,9 +1,11 @@
 
 public class StackAsList<T> implements Stack<T> {
 	private Node top;
+	private int size;
 
 	@Override
 	public T pop() {
+		size++;
 		if (top.next != null) {
 			T topString = top.data;
 			top = top.next;
@@ -18,9 +20,14 @@ public class StackAsList<T> implements Stack<T> {
 			return null;
 		}
 	}
+	
+	public int getSize() {
+	    return size;
+	}
 
 	@Override
 	public void push(T elem) {
+		size++;
 		if (top == null) {
 			Node newNode = new Node(elem, null);
 			top = newNode;
@@ -31,10 +38,12 @@ public class StackAsList<T> implements Stack<T> {
 			top = newNode;
 		}
 	}
+	
 
 	public static void main(String[] args) {
 		
 	}
+	
 	
 	@Override
 	public String toString() {
